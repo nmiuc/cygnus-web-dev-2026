@@ -4,6 +4,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -37,7 +39,20 @@ export default async function RootLayout({
         className={`${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground`}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <div className="relative min-h-screen flex flex-col bg-black overflow-x-hidden">
+            {/* Ambient Background Effects */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+              <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] rounded-full" />
+              <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-purple-500/5 blur-[120px] rounded-full" />
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20" />
+            </div>
+
+            <Navbar />
+            <main className="flex-grow z-10 pt-24">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

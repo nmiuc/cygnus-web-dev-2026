@@ -23,5 +23,23 @@
         "signOut": "INITIALIZE_LOGOUT",
         "status": "SYSTEM_STATUS",
         "welcomeMessage": "Welcome, Operator. All virtualization nodes are under active monitoring."
+    },
+    "Nav": {
+        "home": "HOME",
+        "services": "SERVICES",
+        "about": "ABOUT",
+        "contact": "CONTACT",
+        "dashboard": "DASHBOARD",
+        "login": "SYSTEM_LOGIN"
+    },
+    "Footer": {
+        "rights": "© 2026 Cygnus, Robots & Humans, LLC. All rights reserved.",
+        "location": "Virginia Beach, VA",
+        "mission": "Evolutionizing technical infrastructure with precision and futuristic vision.",
+        "links": {
+            "privacy": "PRIVACY",
+            "terms": "TERMS",
+            "status": "STATUS"
+        }
     }
 }

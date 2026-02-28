@@ -23,5 +23,23 @@
         "signOut": "TERMINAR_SESIÓN",
         "status": "ESTADO_SISTEMA",
         "welcomeMessage": "Bienvenido, Operador. Todos los nodos de virtualización están bajo supervisión activa."
+    },
+    "Nav": {
+        "home": "INICIO",
+        "services": "SERVICIOS",
+        "about": "NOSOTROS",
+        "contact": "CONTACTO",
+        "dashboard": "DASHBOARD",
+        "login": "ACCESO_SISTEMA"
+    },
+    "Footer": {
+        "rights": "© 2026 Cygnus, Robots & Humans, LLC. Todos los derechos reservados.",
+        "location": "Virginia Beach, VA",
+        "mission": "Evolucionando la infraestructura técnica con precisión y visión futurista.",
+        "links": {
+            "privacy": "PRIVACIDAD",
+            "terms": "TÉRMINOS",
+            "status": "ESTADO"
+        }
     }
 }
