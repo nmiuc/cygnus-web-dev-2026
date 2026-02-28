@@ -5,7 +5,7 @@ import { routing } from './i18n/routing';
 
 export default async function middleware(request: NextRequest) {
     // 1. Initial i18n middleware
-    const i18nMiddleware = createMiddleware(routing);
+    const i18nMiddleware = createMiddleware(routing as any);
     const response = i18nMiddleware(request);
 
     // 2. Supabase Session Handler
@@ -36,7 +36,9 @@ export default async function middleware(request: NextRequest) {
     const isProtectedRoute = pathname.includes('/dashboard') || pathname.includes('/backoffice');
 
     if (isProtectedRoute && !user) {
-        const locale = pathname.split('/')[1] || 'es';
+        // Extract locale from path safely
+        const segment = pathname.split('/')[1];
+        const locale = routing.locales.includes(segment as any) ? segment : routing.defaultLocale;
         return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
     }
 

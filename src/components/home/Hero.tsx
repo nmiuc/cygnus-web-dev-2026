@@ -16,11 +16,20 @@ export function Hero() {
                     src="/cygnus_hero_image.png"
                     alt="Technical Lab"
                     fill
-                    className="object-cover opacity-40 mix-blend-luminosity"
+                    className="object-cover opacity-30 mix-blend-luminosity scale-110 blur-[2px]"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950 z-10" />
+
+                {/* Cyber Grid */}
+                <div className="absolute inset-0 z-5 opacity-20"
+                    style={{ backgroundImage: 'linear-gradient(rgba(6,182,212,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+                {/* Moving Scanline */}
+                <div className="absolute inset-0 z-5 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent h-20 w-full animate-scanline pointer-events-none"
+                    style={{ top: '-10%' }} />
             </div>
+
 
             <div className="max-w-7xl mx-auto px-6 relative z-20 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-8">
@@ -30,17 +39,17 @@ export function Hero() {
                         </span>
                     </div>
 
-                    <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase italic leading-[0.8] drop-shadow-[0_0_15px_rgba(13,204,242,0.3)]">
+                    <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase italic leading-[0.8] text-glow-cyan">
                         {t("title")}
                     </h1>
 
-                    <p className="text-xl text-cyan-100/60 max-w-xl font-light leading-relaxed italic">
+                    <p className="text-xl text-slate-300 max-w-xl font-light leading-relaxed italic">
                         {t("subtitle")}
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4">
                         <Link href="/contact">
-                            <Button size="lg" className="bg-cyan-500 text-black hover:bg-white font-black tracking-widest rounded-none h-16 px-10 group relative overflow-hidden">
+                            <Button size="lg" className="bg-cyan-500 text-slate-900 hover:bg-white font-black tracking-widest rounded-none h-16 px-10 group relative overflow-hidden border-cyan-glow">
                                 <span className="relative z-10">{t("hero.cta")}</span>
                                 <div className="absolute inset-0 bg-white translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
                             </Button>

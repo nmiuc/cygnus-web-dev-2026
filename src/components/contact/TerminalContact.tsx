@@ -41,42 +41,63 @@ export function TerminalContact() {
     ];
 
     return (
-        <div className="w-full max-w-2xl mx-auto bg-black border border-cyan-500/30 p-8 font-mono text-sm shadow-[0_0_30px_rgba(13,204,242,0.1)]">
-            <div className="flex items-center justify-between mb-8 opacity-50 border-b border-white/5 pb-4">
-                <span className="text-[10px] uppercase tracking-widest text-cyan-500">Node_Comm_Protocol_Active</span>
-                <div className="flex gap-2">
-                    <div className="w-2 h-2 rounded-full bg-red-500/50" />
-                    <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-                    <div className="w-2 h-2 rounded-full bg-green-500/50" />
+        <div className="w-full max-w-2xl mx-auto bg-black/90 border border-cyan-500/30 p-8 font-mono text-sm shadow-[0_0_30px_rgba(13,204,242,0.1)] relative overflow-hidden group">
+            {/* Terminal Scanline Overlay */}
+            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-50 bg-[length:100%_2px,3px_100%]" />
+
+            {/* Flickering effect */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-cyan-500 animate-pulse z-40" />
+
+            <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-4 relative z-10">
+                <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-cyan-500 animate-pulse" />
+                    <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-cyan-400">Cygnus_Terminal_v1.0.4</span>
+                </div>
+                <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full border border-white/10" />
+                    <div className="w-2.5 h-2.5 rounded-full border border-white/10" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-cyan-500/20" />
                 </div>
             </div>
 
-            <div className="space-y-4">
-                <div className="text-cyan-400 mb-6">{t("welcome")}</div>
-                <div className="text-cyan-500/40 mb-8 italic">{t("initializing")}</div>
+            <div className="space-y-6 relative z-10 min-h-[300px]">
+                <div className="space-y-1">
+                    <div className="text-cyan-400/60 leading-tight"># {t("welcome")}</div>
+                    <div className="text-cyan-500/30 italic text-xs"># {t("initializing")}... [OK]</div>
+                </div>
 
                 {/* Completed Steps */}
                 {steps.slice(0, step).map((s, idx) => (
-                    <div key={idx} className="space-y-1">
-                        <div className="text-cyan-500/60 uppercase text-[10px]">{s.prompt}</div>
-                        <div className="text-white pl-4 border-l border-cyan-500/20 mb-4">{form[s.key as keyof typeof form]}</div>
+                    <div key={idx} className="space-y-1 animate-in fade-in slide-in-from-left-2 duration-300">
+                        <div className="flex items-center gap-2">
+                            <span className="text-cyan-500/40 font-bold">$</span>
+                            <span className="text-cyan-500/60 uppercase text-[10px] tracking-widest">{s.prompt}</span>
+                        </div>
+                        <div className="text-white pl-4 border-l border-cyan-500/20 mb-4 font-bold tracking-tight">
+                            {form[s.key as keyof typeof form]}
+                        </div>
                     </div>
                 ))}
 
                 {/* Current Step */}
                 {!isSuccess && !isSending && (
-                    <div className="space-y-2">
-                        <div className="text-cyan-400 font-bold">{steps[step].prompt}</div>
-                        <div className="flex items-center gap-2 pl-4 border-l-2 border-cyan-500">
-                            <span className="text-cyan-500 font-bold tracking-tighter"> {">"} </span>
+                    <div className="space-y-3 animate-in fade-in duration-500">
+                        <div className="flex items-center gap-2">
+                            <span className="text-cyan-400 font-bold animate-pulse">{">"}</span>
+                            <span className="text-cyan-400 font-bold tracking-widest uppercase text-xs">
+                                {steps[step].prompt}
+                            </span>
+                        </div>
+                        <div className="flex items-center gap-2 pl-4 border-l-2 border-cyan-500 bg-cyan-500/5 py-2">
                             <input
                                 ref={inputRef}
                                 type="text"
-                                className="bg-transparent border-none outline-none text-white w-full placeholder:opacity-20"
-                                placeholder="..."
+                                className="bg-transparent border-none outline-none text-cyan-50 w-full placeholder:text-cyan-500/20 caret-cyan-400"
+                                placeholder="type_here..."
                                 value={form[steps[step].key as keyof typeof form]}
                                 onChange={(e) => setForm({ ...form, [steps[step].key]: e.target.value })}
                                 onKeyDown={handleKeyDown}
+                                autoFocus
                             />
                         </div>
                     </div>
@@ -84,31 +105,40 @@ export function TerminalContact() {
 
                 {/* Status Messages */}
                 {isSending && (
-                    <div className="pt-8 flex items-center gap-4 text-cyan-400 animate-pulse">
-                        <div className="w-4 h-4 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-                        <span>{t("sending")}</span>
+                    <div className="pt-12 flex flex-col items-center gap-4 text-cyan-400">
+                        <div className="w-12 h-1 bg-white/5 overflow-hidden relative">
+                            <div className="absolute inset-0 bg-cyan-500 animate-progress" />
+                        </div>
+                        <span className="text-[10px] font-mono tracking-[0.4em] animate-pulse">{t("sending")}</span>
                     </div>
                 )}
 
                 {isSuccess && (
-                    <div className="pt-8 space-y-4">
-                        <div className="p-4 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-bold uppercase tracking-widest">
-                            {t("success")}
+                    <div className="pt-12 space-y-6 animate-in zoom-in-95 duration-500">
+                        <div className="p-6 bg-cyan-500/5 border border-cyan-500/30 rounded-sm">
+                            <div className="text-cyan-400 font-bold uppercase tracking-[0.2em] text-center text-xs mb-2">
+                                [ {t("success")} ]
+                            </div>
+                            <div className="text-[10px] text-cyan-500/40 text-center font-mono italic">
+                                Transmission_ID: {Math.random().toString(36).substring(7).toUpperCase()}
+                            </div>
                         </div>
                         <Button
-                            variant="outline"
-                            className="border-cyan-500/20 text-cyan-100/40 hover:bg-cyan-500/10 text-[10px]"
+                            variant="ghost"
+                            className="w-full border border-cyan-500/10 text-cyan-500/40 hover:text-cyan-400 hover:bg-cyan-500/5 text-[10px] tracking-[0.3em] font-mono"
                             onClick={() => { setStep(0); setIsSuccess(false); setForm({ name: "", email: "", message: "" }); }}
                         >
-                            RESET_CONNECTION_QUEUE
+                            {">"} REBOOT_SESSION
                         </Button>
                     </div>
                 )}
             </div>
 
-            <div className="mt-12 text-[10px] text-cyan-500/20 text-center uppercase tracking-widest">
-                Terminal_Uptime: 104:12:05:01
+            <div className="mt-16 flex items-center justify-between text-[8px] text-cyan-500/20 font-mono uppercase tracking-[0.3em]">
+                <div>Loc: 36.8529° N, 75.9780° W</div>
+                <div>UPTIME: 99.98%</div>
             </div>
         </div>
     );
 }
+
