@@ -1,7 +1,34 @@
 {
     "Home": {
         "title": "Evolutionizing Infrastructure",
-        "subtitle": "Cygnus, Robots & Humans, LLC: Your partner in Proxmox and Automation"
+        "subtitle": "Cygnus, Robots & Humans, LLC: Your partner in Proxmox & Cutting-edge Automation.",
+        "hero": {
+            "cta": "INITIALIZE_PROTOCOL",
+            "terminal_prefix": "OPERATOR@CYGNUS:~$ ",
+            "terminal_cmd": "bash deploy_future.sh --precision --vision"
+        },
+        "services": {
+            "title": "SERVICE_PROTOCOLS",
+            "subtitle": "Robust technical architecture and customized digital solutions.",
+            "items": {
+                "virtualization": {
+                    "title": "ELITE_VIRTUALIZATION",
+                    "desc": "Proxmox and ZimaOS implementation for maximum resource efficiency."
+                },
+                "networking": {
+                    "title": "NETWORKING_&_SECURITY",
+                    "desc": "PFSENSE, Cloudflare, and private networking via Tailscale/Netbird."
+                },
+                "automation": {
+                    "title": "IOT_AUTOMATION",
+                    "desc": "Smart solutions with ESP32 and Home Assistant for total control."
+                },
+                "infrastructure": {
+                    "title": "LINUX_INFRASTRUCTURE",
+                    "desc": "Docker servers, Frigate, and management tools like GLPI/Dolibarr."
+                }
+            }
+        }
     },
     "Auth": {
         "loginTitle": "SYSTEM_LOGIN",
