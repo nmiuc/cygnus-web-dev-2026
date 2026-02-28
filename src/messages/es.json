@@ -1,1 +1,27 @@
-{"Home": {"title": "Evolucionando la Infraestructura", "subtitle": "Cygnus, Robots & Humans, LLC: Su socio en Proxmox y Automatización"}}
+{
+    "Home": {
+        "title": "Evolucionando la Infraestructura",
+        "subtitle": "Cygnus, Robots & Humans, LLC: Su socio en Proxmox y Automatización"
+    },
+    "Auth": {
+        "loginTitle": "ACCESO_SISTEMA",
+        "loginSubtitle": "Autenticación requerida para protocolos Cygnus",
+        "email": "IDENTIFICADOR_RED (Email)",
+        "password": "CLAVE_CRIPTOGRÁFICA",
+        "loginButton": "INICIAR_SESIÓN",
+        "loading": "PROCESANDO...",
+        "orContinueWith": "O CONTINUAR CON",
+        "noAccount": "¿Sin acceso autorizado?",
+        "registerLink": "SOLICITAR_CREDENCIALES",
+        "registerTitle": "REGISTRO_NUEVO_NODO",
+        "registerSubtitle": "Crear perfil de consultor técnico",
+        "registerButton": "CREAR_ACCESO",
+        "haveAccount": "¿Ya tienes credenciales?"
+    },
+    "Dashboard": {
+        "title": "CENTRO_DE_CONTROL_CYGNUS",
+        "signOut": "TERMINAR_SESIÓN",
+        "status": "ESTADO_SISTEMA",
+        "welcomeMessage": "Bienvenido, Operador. Todos los nodos de virtualización están bajo supervisión activa."
+    }
+}
