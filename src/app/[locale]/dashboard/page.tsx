@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "@/i18n/routing";
 
 export default function DashboardPage() {
     const t = useTranslations("Dashboard");
@@ -20,7 +19,7 @@ export default function DashboardPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <Card className="bg-black/40 border-cyan-500/20 backdrop-blur-xl">
-                        <CardHeader Gallary="Service Health">
+                        <CardHeader>
                             <CardTitle className="text-cyan-400 text-sm">{t("status")}</CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -29,9 +28,8 @@ export default function DashboardPage() {
                         </CardContent>
                     </Card>
 
-                    {/* Proxmox Node Status Placeholder */}
                     <Card className="bg-black/40 border-purple-500/20 backdrop-blur-xl">
-                        <CardHeader Gallary="Active Nodes">
+                        <CardHeader>
                             <CardTitle className="text-purple-400 text-sm">PROXMOX_CLUSTERS</CardTitle>
                         </CardHeader>
                         <CardContent>
