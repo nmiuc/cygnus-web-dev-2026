@@ -68,5 +68,28 @@
             "terms": "TÉRMINOS",
             "status": "ESTADO"
         }
+    },
+    "About": {
+        "title": "MANIFIESTO_TÉCNICO",
+        "mission_title": "Nuestra Misión",
+        "mission_text": "En Cygnus, Robots & Humans, LLC, nuestra misión es simplificar la complejidad técnica. No solo configuramos servidores; construimos arquitecturas robustas que evolucionan con las necesidades de nuestros clientes.",
+        "vision_title": "Visión de Futuro",
+        "vision_text": "Visualizamos un mundo donde la virtualización y la automatización IoT sean accesibles y seguras para todos. Desde Virginia Beach hacia el futuro digital.",
+        "experience_title": "Experiencia de Nodo",
+        "experience_text": "Años de especialización en Proxmox, ZimaOS, y soluciones de red avanzada nos posicionan como líderes en consultoría técnica moderna."
+    },
+    "Contact": {
+        "title": "ESTABLECER_CONEXIÓN",
+        "terminal": {
+            "welcome": "BIENVENIDO AL TERMINAL DE COMUNICACIÓN CYGNUS V1.0",
+            "initializing": "Inicializando protocolos de enlace...",
+            "prompt_name": "[IDENTIDAD]: Ingrese su nombre completo: ",
+            "prompt_email": "[RECURSO]: Ingrese su dirección de red (Email): ",
+            "prompt_message": "[DATA_STREAM]: Ingrese su requerimiento técnico: ",
+            "sending": "Transmitiendo datos a través de canal seguro...",
+            "success": "LINK_ESTABLECIDO: Datos recibidos. Operador contactará pronto.",
+            "error": "ERROR_DE_PROTOCOLO: Fallo en la transmisión. Intente de nuevo.",
+            "button": "ENVIAR_PAQUETE"
+        }
     }
 }
